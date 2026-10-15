@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}</script>
   <title>Mohammadamin Milantash — Computer Vision Researcher &amp; Builder</title>
-  <meta name="description" content="Mohammadamin Milantash — Computer Engineer designing deep learning systems for computer vision, and founder of WebVision, an AI platform that turns visual design into code.">
+  <meta name="description" content="Mohammadamin Milantash — Computer Engineer designing deep learning systems for computer vision, and founder of WebVision, an AI platform that turns visual design into code. Research in medical imaging, explainable AI and OCR.">
   <link rel="icon" id="favicon" type="image/png" href="image.jpg">
   <link rel="apple-touch-icon" href="image.jpg">
   <meta name="author" content="Mohammadamin Milantash">
@@ -129,6 +129,17 @@
       transition:opacity .2s;
     }
     .btn-cv:hover{ opacity:.82; }
+
+    .cv-menu{ position:relative; }
+    .cv-menu button.btn-cv{ border:none; cursor:pointer; }
+    .cv-drop{
+      display:none; position:absolute; right:0; top:calc(100% + 8px); min-width:230px; z-index:60;
+      background:var(--card); border:1.5px solid var(--line); border-radius:12px; box-shadow:var(--shadow); padding:6px;
+    }
+    .cv-menu.open .cv-drop{ display:block; }
+    .cv-drop a{ display:flex; justify-content:space-between; gap:14px; padding:9px 12px; border-radius:8px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:var(--ink-2); }
+    .cv-drop a span{ color:var(--faint); font-weight:500; }
+    .cv-drop a:hover{ background:var(--accent-soft); color:var(--accent); }
 
     .nav-burger{ display:none; }
 
@@ -345,7 +356,13 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <span class="lbl-dark">Dark</span><span class="lbl-light">Light</span>
       </button>
-      <a class="btn-cv" href="CV_Mohammadamin_Milantash.pdf" download>Résumé ↓</a>
+      <div class="cv-menu" id="cvMenu">
+        <button class="btn-cv" id="cvBtn" type="button" aria-haspopup="true" aria-expanded="false">Résumé ↓</button>
+        <div class="cv-drop" role="menu">
+          <a href="Resume_Mohammadamin_Milantash.pdf" download role="menuitem">One-page résumé <span>PDF</span></a>
+          <a href="CV_Mohammadamin_Milantash.pdf" download role="menuitem">Full CV <span>PDF</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -358,13 +375,14 @@
     <div class="hero-grid">
       <div>
         <h1 class="hero-name">Mohammadamin<br>Milantash</h1>
-        <p class="hero-role">Computer Vision Researcher · Founder &amp; Product/Technical Lead, <span class="wv">WebVision</span></p>
-        <p class="hero-bio">Computer Engineer who designs and builds deep learning systems for computer vision, turning research into production-ready tools. Founded an early-stage AI startup reimagining how visual design becomes code, drawing on a frontend engineering background to mentor engineers and guide students through hands-on technical training.</p>
+        <p class="hero-role">Computer Vision Researcher · Web developer</p>
+        <p class="hero-bio">Computer Engineer who designs and builds deep learning systems for computer vision, turning research into production-ready tools. Currently a research collaborator at Mashhad University of Medical Sciences, working on explainable AI for medical imaging and clinical data, and founder of an early-stage AI startup reimagining how visual design becomes code. A frontend engineering background supports mentoring engineers and guiding students through hands-on technical training.</p>
         <div class="hero-actions">
           <a class="pill solid" href="mailto:mohammadamin.milantash@gmail.com">Email me</a>
           <a class="pill" href="https://github.com/Milantash" target="_blank" rel="noopener">GitHub</a>
           <a class="pill" href="https://www.linkedin.com/in/aminmilantash/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="pill" href="CV_Mohammadamin_Milantash.pdf" download>Download CV</a>
+          <a class="pill" href="Resume_Mohammadamin_Milantash.pdf" download>Résumé (1 page)</a>
+          <a class="pill" href="CV_Mohammadamin_Milantash.pdf" download>Full CV</a>
         </div>
       </div>
       <div class="hero-avatar-frame">
@@ -400,6 +418,8 @@
     <div class="news">
       <span class="news-tag">Latest</span>
       <div class="news-list">
+        <div class="news-item"><span class="d">Oct 2026</span> Two manuscripts completed: an explainable multimodal AI framework for cervical cancer screening (colposcopy images and clinical data), and explainable ML models predicting the clinical competence of nurses across hospital departments.</div>
+        <div class="news-item"><span class="d">Sep 2026</span> Started a research collaboration with Dr. Toktam Dehghani at Mashhad University of Medical Sciences, applying explainable AI to clinical data.</div>
         <div class="news-item"><span class="d">Apr 2026</span> Founded WebVision — an AI platform that converts screenshots and design concepts into editable web interfaces.</div>
         <div class="news-item"><span class="d">Jan 2026</span> Began an independent research collaboration with Dr. Boshra Rajaei (Centre Borelli, ENS Paris-Saclay) on deep learning–based OCR.</div>
         <div class="news-item"><span class="d">Oct–Nov 2025</span> Designed and delivered an AI upskilling program for 50+ engineers at LIMOO HOST.</div>
@@ -417,6 +437,7 @@
           <span class="chip">Efficient Deep Learning for CV</span>
           <span class="chip">Medical Image Analysis</span>
           <span class="chip">Generative &amp; Multimodal AI</span>
+          <span class="chip">Explainable AI for Clinical Data</span>
           <span class="chip">OCR &amp; Text Detection</span>
         </div>
       </div>
@@ -451,6 +472,23 @@
       <div class="sec-label">Research</div>
       <div>
         <h2>Research Experience</h2>
+
+        <div class="subgroup-label plain">Medical AI &amp; Explainable ML</div>
+        <div class="entry">
+          <div class="entry-head">
+            <span class="entry-title">Research Collaborator (Hybrid, Part-Time)</span>
+            <span class="entry-date">Sep 2026 – Present</span>
+          </div>
+          <div class="entry-org">Supervised by Dr. Toktam Dehghani, Faculty of Medicine, Mashhad University of Medical Sciences</div>
+          <ul>
+            <li>Contributes to concurrent research projects applying explainable AI to clinical data, spanning medical computer vision and predictive modeling.</li>
+            <li>Multimodal deep learning for cervical cancer screening, combining colposcopy images with structured clinical data.</li>
+            <li>Explainable machine learning for predicting the clinical competence of nurses across hospital departments.</li>
+            <li>Two manuscripts prepared (see Publications).</li>
+          </ul>
+        </div>
+
+        <div class="subgroup-label plain">OCR &amp; Text Detection</div>
         <div class="entry">
           <div class="entry-head">
             <span class="entry-title">Independent Research Collaborator</span>
@@ -460,6 +498,20 @@
           <ul>
             <li>Conducts deep learning–based OCR and text detection research, covering dataset preprocessing, experimental design, and model development.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="sec reveal" id="publications">
+    <div class="sec-grid">
+      <div class="sec-label">Publications</div>
+      <div>
+        <h2>Publications</h2>
+        <div class="row-list">
+          <div class="row-item"><span>An Explainable Multimodal Artificial Intelligence Framework for Cervical Cancer Screening Using Colposcopy Images and Clinical Data</span><span class="meta">Manuscript</span></div>
+          <div class="row-item"><span>Predicting the Clinical Competence of Nurses in Different Hospital Departments Using Explainable Machine Learning Models</span><span class="meta">Manuscript</span></div>
         </div>
       </div>
     </div>
@@ -647,6 +699,20 @@
     </div>
   </section>
 
+  <!-- RESUME -->
+  <section class="sec reveal" id="resume">
+    <div class="sec-grid">
+      <div class="sec-label">Résumé</div>
+      <div>
+        <h2>Résumé &amp; CV</h2>
+        <div class="row-list">
+          <div class="row-item"><span><a class="inline-link" href="Resume_Mohammadamin_Milantash.pdf" download>One-page résumé</a> — personalized, condensed overview</span><span class="meta">PDF ↓</span></div>
+          <div class="row-item"><span><a class="inline-link" href="CV_Mohammadamin_Milantash.pdf" download>Full CV</a> — research, publications, experience, teaching, outreach, training and honors</span><span class="meta">PDF ↓</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <footer id="contact">
     <div class="footer-grid">
@@ -658,7 +724,8 @@
           <a class="pill solid" href="mailto:mohammadamin.milantash@gmail.com">Email me</a>
           <a class="pill" href="https://github.com/MAmin-Milantash" target="_blank" rel="noopener">GitHub</a>
           <a class="pill" href="https://www.linkedin.com/in/aminmilantash/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="pill" href="CV_Mohammadamin_Milantash.pdf" download>Download CV (PDF)</a>
+          <a class="pill" href="Resume_Mohammadamin_Milantash.pdf" download>Résumé (1 page, PDF)</a>
+          <a class="pill" href="CV_Mohammadamin_Milantash.pdf" download>Full CV (PDF)</a>
         </div>
       </div>
     </div>
@@ -683,6 +750,17 @@
         localStorage.setItem('theme','dark');
       }
     });
+  })();
+
+  (function(){
+    const menu = document.getElementById('cvMenu'), btn = document.getElementById('cvBtn');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){ if (!menu.contains(e.target)){ menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
   })();
 
   document.addEventListener('DOMContentLoaded', function(){
